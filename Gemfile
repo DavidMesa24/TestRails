@@ -72,11 +72,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'factory_bot_rails', '~> 6.2'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
   gem 'faker', '~> 2.18'
   gem 'database_cleaner-active_record', '~> 2.1'
-  gem 'rspec-rails', '~> 5.0'
-  gem 'simplecov', '~> 0.21.2', require: false
+  gem 'rspec-rails'
+  gem 'simplecov', '~> 0.22.0', require: false
 
 end
