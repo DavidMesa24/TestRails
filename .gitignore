@@ -36,3 +36,5 @@
 
 # Ignore idea folder
 .idea
+/app/assets/builds/*
+!/app/assets/builds/.keep

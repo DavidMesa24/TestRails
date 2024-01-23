@@ -1,0 +1,8 @@
+<!-- app/views/v1/banks/new.html.erb -->
+<div class="max-w-md mx-auto mt-8">
+  <h1 class="text-3xl font-bold mb-4">New Bank</h1>
+
+  <%= render 'form', bank: @bank %>
+
+  <%= link_to 'Back', v1_banks_path, class: 'text-gray-500 hover:underline block mt-4' %>
+</div>

@@ -1,0 +1,14 @@
+<!-- app/views/v1/banks/_form.html.erb -->
+<%= form_for([:v1, bank]) do |f| %>
+  <div class="max-w-md mt-8">
+    <div class="mb-4">
+      <%= f.label :name, class: 'block text-sm font-bold mb-2 text-gray-700' %>
+      <%= f.text_field :name, class: 'border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    </div>
+
+    <div>
+      <%= f.submit class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    </div>
+  </div>
+<% end %>
+

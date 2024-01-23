@@ -46,6 +46,11 @@ gem 'pg', '~> 1.2', '>= 1.2.3'
 
 gem 'dotenv-rails', '~> 2.7', require: 'dotenv/rails-now'
 
+gem 'i18n', '~> 1.8', '>= 1.8.11'
+
+gem 'tailwindcss-rails'
+gem 'tailwindcss'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

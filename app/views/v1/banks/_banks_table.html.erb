@@ -1,0 +1,35 @@
+<!-- app/views/v1/banks/_banks_table.html.erb -->
+<table class="min-w-full border border-gray-200">
+  <thead>
+  <tr>
+    <th class="border-b px-4 py-2">Name</th>
+    <th class="border-b px-4 py-2">Edit</th>
+    <th class="border-b px-4 py-2">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @banks.each do |bank| %>
+    <tr>
+      <!-- Column: Name -->
+      <td class="border-b px-4 py-2">
+        <%= link_to bank.name, v1_bank_path(bank), class: 'text-blue-500 hover:underline' %>
+      </td>
+
+      <!-- Column: Edit -->
+      <td class="border-b px-4 py-2">
+        <%= render partial: 'shared/edit_link_table', locals: { resource: bank, edit_icon: '/pencil.png' } %>
+      </td>
+
+      <!-- Column: Delete -->
+      <td class="border-b px-4 py-2">
+        <%= render partial: 'shared/delete_link_table', locals: { resource: bank, delete_icon: '/trash.png' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+
+
