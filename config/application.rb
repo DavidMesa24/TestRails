@@ -18,5 +18,10 @@ module TestChallenge
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.default_locale = :en
+
+    config.to_prepare do
+      Devise::RegistrationsController.before_action :configure_permitted_parameters
+    end
   end
 end

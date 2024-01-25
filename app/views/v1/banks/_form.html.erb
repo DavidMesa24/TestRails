@@ -1,0 +1,12 @@
+<%= form_for([:v1, bank], html: { class: 'max-w-md mx-auto mt-8 p-6 bg-white rounded shadow-md' }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="mb-4">
+    <%= f.label :name, class: 'block text-sm font-semibold mb-2 text-gray-700' %>
+    <%= f.text_field :name, class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+  </div>
+
+  <div class="mt-6">
+    <%= f.submit 'Create Bank', class: 'bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 w-full transition duration-300' %>
+  </div>
+<% end %>

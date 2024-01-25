@@ -1,0 +1,30 @@
+<!-- app/views/v1/banks/show.html.erb -->
+<div class="max-w-md mx-auto mt-8">
+  <h1 class="text-3xl font-bold mb-4"><%= @bank.name %></h1>
+
+  <div class="mt-4">
+    <table class="table-auto w-full">
+      <tbody>
+      <tr>
+        <!-- Column: Name -->
+        <td class="border px-4 py-2"><strong>Name:</strong> <%= @bank.name %></td>
+
+        <!-- Column: Edit -->
+        <td class="border px-4 py-2">
+          <%= render partial: 'shared/edit_link_table', locals: { resource: @bank, edit_icon: '/pencil.png' } %>
+        </td>
+
+        <!-- Column: Delete -->
+        <td class="border px-4 py-2">
+          <%= render partial: 'shared/delete_link_table', locals: { resource: @bank, delete_icon: '/trash.png' } %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <%= link_to 'Back', v1_banks_path, class: 'text-gray-500 hover:underline mt-4' %>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <!-- Agrega el enlace a los estilos de Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+      body {
+          background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      }
+  </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+<div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+  <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
+    <div>
+      <%= f.label :email, class: "block text-sm font-semibold mb-2 text-gray-600" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full border-b-2 border-gray-300 p-2 focus:outline-none focus:border-blue-500 transition duration-300" %>
+    </div>
+
+    <div>
+      <%= f.label :password, class: "block text-sm font-semibold mb-2 text-gray-600" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "w-full border-b-2 border-gray-300 p-2 focus:outline-none focus:border-blue-500 transition duration-300" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="flex items-center space-x-2 text-gray-600 text-sm">
+        <%= f.check_box :remember_me, class: "text-blue-500" %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="mt-6">
+      <%= f.submit "Log in", class: "bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 w-full transition duration-300" %>
+    </div>
+  <% end %>
+
+  <!--<div class="mt-4 flex flex-col items-center gap-1">-->
+    <%= render "devise/shared/links" %>
+  <!--</div>-->
+
+</div>
+</body>
+</html>
+
+
+

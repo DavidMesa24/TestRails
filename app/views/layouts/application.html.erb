@@ -1,16 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>TestChallenge</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <!-- Meta tags, CSRF, CSP, stylesheets, javascript_importmap_tags, etc. -->
+  <%= stylesheet_link_tag 'tailwind', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+  <%= javascript_importmap_tags %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+              var flashMessages = document.querySelectorAll('.flash-popup');
+              flashMessages.forEach(function(flashMessage) {
+                  flashMessage.remove();
+              });
+          }, 5000); // Cambia 5000 por el tiempo en milisegundos que desees
+      });
+  </script>
 
-  <body>
-    <%= yield %>
-  </body>
+</head>
+<body class="gap-4">
+<!-- Header section (1, 1) -->
+<header style="display: flex; justify-content: end; margin-top: 1rem; margin-right: 1rem">
+  <%= render "shared/navbar" %>
+</header>
+
+<!-- Flash messages container (1, 2) -->
+<div class="flash-container col-span-3 mt-4">
+  <% flash.each do |key, value| %>
+    <div class="flash-popup alert <%= flash_class_for(key) %>">
+      <span class="flash-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <%= value %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Main content (2, 1 to 3, 3) -->
+<div class="main-content flex justify-center items-center">
+  <%= yield %>
+</div>
+
+</body>
 </html>

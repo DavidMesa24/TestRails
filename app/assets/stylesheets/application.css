@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+/* app/assets/stylesheets/application.css */
+
+/* app/assets/stylesheets/application.css */
+
+/* app/assets/stylesheets/application.css */
+
+/* app/assets/stylesheets/application.css */
+
+.flash-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.flash-popup {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #333;
+    max-width: 300px; /* Ajusta el ancho según sea necesario */
+    margin-bottom: 10px;
+    display: none;
+}
+
+.flash-popup.alert {
+    display: block;
+}
+
+/* Estilos adicionales según sea necesario */
+

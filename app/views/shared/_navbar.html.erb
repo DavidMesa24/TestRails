@@ -1,0 +1,9 @@
+<!-- app/views/shared/_navbar.html.erb -->
+
+<nav class="bg-gray-200 p-4 text-white">
+  <div class="flex justify-end">
+      <% if user_signed_in? %>
+        <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "ml-4 px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300" %>
+      <% end %>
+  </div>
+</nav>
