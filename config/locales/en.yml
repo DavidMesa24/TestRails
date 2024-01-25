@@ -35,3 +35,12 @@ en:
     record_not_found: 'Record not found'
     validation_errors: 'Validation errors'
     general_error: 'Something went wrong'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: "can't be blank"
+            last_name:
+              blank: "can't be blank"

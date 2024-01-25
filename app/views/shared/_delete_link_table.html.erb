@@ -1,5 +1,6 @@
 <!-- app/views/shared/_delete_link.html.erb -->
-<%= link_to [:v1, resource], method: :delete, data: { confirm: 'Are you sure?' } do %>
+<%= button_to [:v1, resource], method: :delete, data: { confirm: 'Are you sure?' } do %>
   <%= image_tag(delete_icon, alt: 'Delete', class: 'cursor-pointer', style: 'width: 20px; height: 20px;') %>
 <% end %>
+
 

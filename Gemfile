@@ -50,7 +50,7 @@ gem 'i18n', '~> 1.8', '>= 1.8.11'
 
 gem 'tailwindcss-rails'
 gem 'tailwindcss'
-
+gem 'devise'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
