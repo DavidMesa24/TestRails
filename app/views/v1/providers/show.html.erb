@@ -1,0 +1,8 @@
+<h1><%= @provider.name %></h1>
+
+<p><strong>NIT:</strong> <%= @provider.nit %></p>
+<p><strong>Contact Name:</strong> <%= @provider.contact_name %></p>
+<p><strong>Contact Phone:</strong> <%= @provider.contact_phone %></p>
+
+<%= link_to 'Edit', edit_v1_provider_path(@provider) %> |
+<%= link_to 'Back to List', v1_providers_path %>

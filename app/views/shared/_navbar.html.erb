@@ -1,9 +1,12 @@
-<!-- app/views/shared/_navbar.html.erb -->
-
-<nav class="bg-gray-200 p-4 text-white">
-  <div class="flex justify-end">
-      <% if user_signed_in? %>
-        <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "ml-4 px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300" %>
-      <% end %>
-  </div>
-</nav>
+<% if user_signed_in? %>
+  <nav class="flex justify-between m-3">
+    <div>
+        <%= link_to I18n.t('views.nav_bar.home'), v1_dashboards_path, method: :get, class: "ml-4 px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300" %>
+        <%= link_to I18n.t('views.nav_bar.banks'), v1_banks_path, method: :get, class: "ml-4 px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300" %>
+        <%= link_to I18n.t('views.nav_bar.providers'), v1_providers_path, method: :get, class: "ml-4 px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300" %>
+    </div>
+    <div>
+        <%= link_to I18n.t('views.nav_bar.logout'), destroy_user_session_path, method: :delete, class: "ml-4 px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300" %>
+    </div>
+  </nav>
+<% end %>
