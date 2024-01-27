@@ -15,13 +15,8 @@ class V1::BanksController < ApplicationController
   end
 
   def create
-    @bank = Bank.new(bank_params)
-    if @bank.save
-      flash[:notice] = (I18n.t('success.banks.created_success'))
-      redirect_to v1_banks_path
-    else
-      with_error_handling { render :new, status: :unprocessable_entity }
-    end
+    @bank = Bank.create(bank_params)
+    handle_response(@bank.persisted?, 'success.banks.created_success', :new, v1_banks_path)
   end
 
   def edit
@@ -29,13 +24,9 @@ class V1::BanksController < ApplicationController
   end
 
   def update
-    if @bank.update(bank_params)
-      flash[:notice] = I18n.t('success.banks.updated_success')
-      redirect_to v1_banks_path
-    else
-      with_error_handling { render :edit, status: :unprocessable_entity }
-    end
+    handle_response(@bank.update(bank_params), 'success.banks.updated_success', :edit, v1_banks_path)
   end
+
 
   def destroy
     if @bank.bank_accounts.any?

@@ -8,6 +8,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation])
   end
 
+  def handle_response(success, success_message, error_view, redirect_path)
+    if success
+      flash[:notice] = I18n.t(success_message)
+      redirect_to redirect_path
+    else
+      with_error_handling { render error_view, status: :unprocessable_entity }
+    end
+  end
+
   def with_error_handling
     yield
   rescue ActiveRecord::RecordNotFound => e
@@ -24,6 +33,7 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace('flash-container', partial: 'shared/error_messages') }
       format.html { flash[:error] = exception.message }
+      format.json { render json: { error: message }, status: status }
     end
   end
 end

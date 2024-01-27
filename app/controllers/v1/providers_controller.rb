@@ -16,12 +16,7 @@ class V1::ProvidersController < ApplicationController
 
   def create
     @provider = Provider.new(provider_params)
-    if @provider.save
-      flash[:notice] = I18n.t('success.providers.created_success')
-      redirect_to v1_providers_path
-    else
-      with_error_handling { render :new, status: :unprocessable_entity }
-    end
+    handle_response(@provider.save, 'success.providers.created_success', :new, v1_providers_path)
   end
 
   def edit
@@ -29,12 +24,7 @@ class V1::ProvidersController < ApplicationController
   end
 
   def update
-    if @provider.update(provider_params)
-      flash[:notice] = I18n.t('success.providers.updated_success')
-      redirect_to v1_providers_path
-    else
-      with_error_handling { render :edit, status: :unprocessable_entity }
-    end
+    handle_response(@provider.update(provider_params), 'success.providers.updated_success', :edit, v1_providers_path)
   end
 
   def destroy
