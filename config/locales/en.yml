@@ -31,10 +31,46 @@
 
 en:
   hello: "Hello world"
+  views:
+    nav_bar:
+      home: 'Home'
+      banks: 'Banks'
+      providers: 'Providers'
+      logout: 'Logout'
+
+    dashboard:
+      header: 'Dashboard'
+      labels:
+        name: 'Name'
+        count: 'Count'
+        banks: 'Banks'
+        providers: 'Providers'
+
+    banks:
+      header: 'List of Banks'
+      new: 'New Bank'
+      action: "%{action} Bank"
+      create: 'Create Bank'
+    providers:
+      new: 'New Provider'
+      header: 'List of Providers'
+      action: "%{action} Provider"
   errors:
+    not_found: 'No information available'
     record_not_found: 'Record not found'
     validation_errors: 'Validation errors'
     general_error: 'Something went wrong'
+    banks:
+      bank_not_empty: 'Bank cannot be deleted because it has bank accounts'
+  success:
+    banks:
+      created_success: 'Bank created successfully'
+      updated_success: 'Bank updated successfully'
+      deleted_success: 'Bank deleted successfully'
+    providers:
+      created_success: 'Provider created successfully'
+      updated_success: 'Provider updated successfully'
+      deleted_success: 'Provider deleted successfully'
   activerecord:
     errors:
       models:
@@ -44,3 +80,4 @@ en:
               blank: "can't be blank"
             last_name:
               blank: "can't be blank"
+

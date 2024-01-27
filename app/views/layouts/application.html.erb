@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags, CSRF, CSP, stylesheets, javascript_importmap_tags, etc. -->
   <%= stylesheet_link_tag 'tailwind', 'data-turbo-track': 'reload' %>
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <%= javascript_importmap_tags %>
 
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          setTimeout(function() {
-              var flashMessages = document.querySelectorAll('.flash-popup');
-              flashMessages.forEach(function(flashMessage) {
-                  flashMessage.remove();
-              });
-          }, 5000); // Cambia 5000 por el tiempo en milisegundos que desees
-      });
-  </script>
-
 </head>
-<body class="gap-4">
-<!-- Header section (1, 1) -->
-<header style="display: flex; justify-content: end; margin-top: 1rem; margin-right: 1rem">
-  <%= render "shared/navbar" %>
-</header>
+  <body class="gap-4">
+    <header>
+      <%= render "shared/navbar" %>
+    </header>
 
-<!-- Flash messages container (1, 2) -->
-<div class="flash-container col-span-3 mt-4">
-  <% flash.each do |key, value| %>
-    <div class="flash-popup alert <%= flash_class_for(key) %>">
-      <span class="flash-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
-      <%= value %>
+    <div class="main-content flex justify-center items-center flex-col">
+      <%= yield %>
     </div>
-  <% end %>
-</div>
 
-<!-- Main content (2, 1 to 3, 3) -->
-<div class="main-content flex justify-center items-center">
-  <%= yield %>
-</div>
+    <div class="flash-container mt-4 flex justify-center">
+      <% flash.each do |key, value| %>
+        <div class="flash-popup alert px-3 rounded-full <%= flash_class_for(key) %>">
+          <span class="flash-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
 
-</body>
+  </body>
 </html>

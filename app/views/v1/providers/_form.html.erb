@@ -1,0 +1,71 @@
+<%= form_for([:v1, provider], html: { class: 'max-w-md mx-auto mt-8' }) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+  <table class="w-full">
+    <tr>
+      <td class="block text-sm font-semibold mb-2 text-gray-700 min-w-full">
+        <%= form.label :name %>
+      </td>
+      <td>
+        <%= form.text_field :name, class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="block text-sm font-semibold mb-2 text-gray-700 min-w-full">
+        <%= form.label :nit %>
+      </td>
+      <td>
+        <%= form.text_field :nit, class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="block text-sm font-semibold mb-2 text-gray-700 min-w-full">
+        <%= form.label :contact_name %>
+      </td>
+      <td>
+        <%= form.text_field :contact_name, class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="block text-sm font-semibold mb-2 text-gray-700 min-w-full">
+        <%= form.label :contact_phone %>
+      </td>
+      <td>
+        <%= form.text_field :contact_phone, class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="block text-sm font-semibold mb-2 min-w-full" >
+        <%= form.label :bank_id, class: 'text-gray-700' %>
+      </td>
+      <td>
+        <%= form.fields_for :bank_account_attributes, @provider.bank_account || @provider.build_bank_account do |bank_account_form| %>
+          <%= bank_account_form.collection_select :bank_id, Bank.all, :id, :name, prompt: 'Select a bank', class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+        <% end %>
+      </td>
+
+    </tr>
+
+    <tr>
+        <%= form.fields_for :bank_account_attributes, @provider.bank_account do |bank_account_form| %>
+
+        <td class="block text-sm font-semibold mb-2 text-gray-700 min-w-full">
+          <%= bank_account_form.label :account_number %>
+        </td>
+        <td>
+          <%= bank_account_form.text_field :account_number, class: 'w-full border rounded-md p-2 focus:outline-none focus:shadow-outline-blue transition duration-300' %>
+        </td>
+        <% end %>
+    </tr>
+  </table>
+
+  <% label = action == :edit ? 'Update' : 'Create' %>
+
+  <div style="margin-top: 1rem">
+    <%= form.submit I18n.t('views.providers.action', action: label ), class: 'bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 w-full transition duration-300' %>
+  </div>
+<% end %>
+

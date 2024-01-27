@@ -1,6 +1,5 @@
-<!-- app/views/shared/_error_messages.html.erb -->
 <% if object.errors.any? %>
-  <div id="error_explanation" class="bg-white border border-red-300 shadow-md text-red-700 px-6 py-4 rounded-md">
+  <div id="error_explanation" class="bg-white border border-red-300 text-red-700 px-6 py-4 rounded-md mb-3">
     <strong class="block font-semibold text-lg mb-2">Oops! <%= pluralize(object.errors.count, "error") %> prohibited this <%= object.class.name.downcase %> from being saved:</strong>
     <ul class="list-disc pl-5">
       <% object.errors.full_messages.each do |msg| %>
@@ -9,4 +8,3 @@
     </ul>
   </div>
 <% end %>
-

@@ -1,0 +1,20 @@
+<div class="m-3">
+  <div class="mb-4 flex flex-row justify-between items-center w-full">
+    <h1 class="text-3xl font-bold text-gray-800">
+      <%= I18n.t('views.providers.header') %>
+    </h1>
+    <div>
+      <%= link_to new_v1_provider_path, class: 'bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 w-full transition duration-300 text-center block' do %>
+        <%= I18n.t('views.providers.new') %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render partial: 'providers_table', locals: { providers: @providers } %>
+
+  <div class="mt-4">
+    <%= will_paginate @providers %>
+  </div>
+</div>
+
+

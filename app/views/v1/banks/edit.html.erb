@@ -1,8 +1,7 @@
-<!-- app/views/v1/banks/edit.html.erb -->
 <div class="max-w-md mx-auto mt-8">
   <h1 class="text-3xl font-bold mb-4">Edit Bank</h1>
 
-  <%= render 'form', bank: @bank %>
+  <%= render 'form', bank: @bank, action: :edit %>
 
-  <%= link_to 'Back', v1_bank_path, class: 'text-gray-500 hover:underline block mt-4' %>
+  <%= link_to 'Back', v1_banks_path, class: 'text-gray-500 hover:underline block mt-4' %>
 </div>

@@ -1,0 +1,38 @@
+<div class="flex justify-center items-center flex-col">
+
+
+<div class="mb-4">
+      <h1 class="text-3xl font-bold text-gray-800">
+        <%= I18n.t('views.dashboard.header') %>
+      </h1>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-min:400 table-auto bg-white border border-gray-300">
+        <thead class="bg-blue-100">
+        <tr>
+          <th class="py-2 px-4 border-b">
+            <%= I18n.t('views.dashboard.labels.name') %>
+          </th>
+          <th class="py-2 px-4 border-b">
+            <%= I18n.t('views.dashboard.labels.count') %>
+          </th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        <tr>
+          <td>
+            <%= I18n.t('views.dashboard.labels.banks') %>
+          </td>
+          <td><%= @banks %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= I18n.t('views.dashboard.labels.providers') %>
+          </td>
+          <td><%= @providers %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
